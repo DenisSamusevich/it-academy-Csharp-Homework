@@ -21,8 +21,8 @@ namespace HW08.Task1
             char newRuA = 'А';
             char newEnga = 'a';
             char newEngA = 'A';
-            poemLine = "Я к вам пишу — чего же боле?;Что я могу ещё сказать?;Теперь, я знаю, в вашей воле;Меня презреньем наказать.;Но вы, к моей несчастной доле;Хоть каплю жалости храня,;Вы не оставите меня.";
-            //poemLine = Console.ReadLine();
+            //poemLine = "Я к вам пишу — чего же боле?;Что я могу ещё сказать?;Теперь, я знаю, в вашей воле;Меня презреньем наказать.;Но вы, к моей несчастной доле;Хоть каплю жалости храня,;Вы не оставите меня.";
+            poemLine = Console.ReadLine();
             foreach (char simbol in poemLine)
                 if (simbol == rowSeparator)
                     indexMaxStringPoem += 1;
