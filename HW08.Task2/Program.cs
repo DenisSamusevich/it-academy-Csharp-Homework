@@ -88,9 +88,9 @@ namespace HW08.Task2
                 else
                     return result = "Maximum number of punctuation marks = " + punctuationMax.ToString();
             }
+
             string[] FastSortWordString(string strSort)
             {
-                string result = String.Empty;
                 int indexMaxString = 0;
                 char rowSeparator = ' ';
                 int indexSimbol = 0;
@@ -103,49 +103,68 @@ namespace HW08.Task2
                         indexMaxString += 1;
                 if (indexMaxString == 0)
                 {
-                    string[] resultat = new string[1];
-                    return resultat;
+                    string[] result = new string[indexMaxString + 1];
+                    result[0] = strSort;
+                    return result;
                 }
                 else
                 {
-                    string[] wordLess = new string[indexMaxString + 1];
-                    string[] wordMore = new string[indexMaxString + 1];
+                    string[] wordLess = new string[indexMaxString];
+                    string[] wordMore = new string[indexMaxString];
                     string[] word = new string[indexMaxString + 1];
                     word = strSort.Split(rowSeparator);
                     for (int i = 1; i < word.Length; i++)
                     {
-
                         if (word[i].Length < word[indexSimbol].Length)
                         {
                             wordLess[indexLessMax] = word[i];
                             indexLessMax += 1;
                         }
                         else
+                        {
                             wordMore[indexMoreMax] = word[i];
-                        indexMoreMax += 1;
+                            indexMoreMax += 1;
+                        }
                     }
-                    string[] sortWordLess = new string[indexLessMax];
-                    string[] sortWordMore = new string[indexMoreMax];
-                    for (int i = 0; i < sortWordLess.Length; i++)
-                        sortWordLess[i] = wordLess[i];
-                    for (int i = 0; i < sortWordMore.Length; i++)
-                        sortWordMore[i] = wordMore[i];
-                    string[] resultat = new string[indexMaxString + 1];
-                    return resultat = (FastSortWordString(string.Join(" ", sortWordLess)) + " " + word[indexSimbol] + " " + FastSortWordString(string.Join(" ", sortWordMore))).Split(' ');
-
+                    string[] result = new string[indexMaxString + 1];
+                    string[] strSortMore = new string[indexMoreMax];
+                    string[] strSortLess = new string[indexLessMax];
+                    for (int i = 0; i < strSortLess.Length; i++)
+                        strSortLess[i] = wordLess[i];
+                    for (int i = 0; i < strSortMore.Length; i++)
+                        strSortMore[i] = wordMore[i];
+                    if (indexLessMax == 1)
+                    {
+                        result[0] = strSortLess[0];
+                    }
+                    else if(indexLessMax > 0)
+                    {
+                        strSortLess = FastSortWordString(string.Join(" ", strSortLess));
+                        for (int i = 0; i < indexLessMax; i++)
+                            result[i] = strSortLess[i];
+                    }
+                    result[indexLessMax] = word[indexSimbol];
+                    if (indexMoreMax == 1)
+                        result[indexLessMax + indexMoreMax] = strSortMore[0];
+                    else if (indexMoreMax > 0)
+                    {
+                        strSortMore = FastSortWordString(string.Join(" ", strSortMore));
+                        for (int i = indexLessMax; i < indexLessMax + indexMoreMax; i++)
+                            result[i+1] = strSortMore[i - indexLessMax];
+                    }
+                    return result;
                 }
-                
-            }        
-
-            string strText = "Подход хорошо подходит для интернета ведь допустимое значение длины описания сниппета может изменятся поэтому главное чтобы наиболее важная часть следовала в самом начале сниппета";
+            }
+            //string strText = "In summer I like to play outside. In summer I like to go to the seaside. I like to pick up shells, To put them on the shelf. That’s what I like to do sometimes, When it comes the summertime";
+            string strText = Console.ReadLine();
             Console.WriteLine(DeleteMaxWord(strText));
             Console.WriteLine(SwapMaxMinWord(strText));
             Console.WriteLine(MaxSimbolsOrPunctuations(strText, true));
             Console.WriteLine(MaxSimbolsOrPunctuations(strText, false));
-            for (int i = 0; i < FastSortWordString(strText).Length; i++)
-            {
-                Console.WriteLine(FastSortWordString(strText)[i]);
-            }
+            string[] strTextSort = new string[FastSortWordString(strText).Length];
+            strTextSort = FastSortWordString(strText);
+            for (int i = 0; i < strTextSort.Length; i++)
+                Console.WriteLine(strTextSort[i]);
             Console.Read();
         }
     }
