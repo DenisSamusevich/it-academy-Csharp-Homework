@@ -343,7 +343,6 @@ namespace HW10.Task1
             }
         }
     }
-
     class TerminalBoarding
     {
         readonly LanguageTerminalCheckIn _language;
@@ -449,4 +448,3 @@ namespace HW10.Task1
         }
     }
 }
-u

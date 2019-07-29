@@ -20,7 +20,7 @@ namespace HW10.Task1
         }
             
     }
-        class LanguageTerminalCheckIn
+    class LanguageTerminalCheckIn
     {
         const string RU = "RU";
         const string EN = "EN";
