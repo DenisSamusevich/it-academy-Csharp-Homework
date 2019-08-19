@@ -1,0 +1,16 @@
+2019-08-19 22:10:35,548 [1] INFO  HW13.Task1.Program - Entering application.
+2019-08-19 22:10:35,575 [1] INFO  HW13.Task1.MotorcycleDataBase - Datebase start create.
+2019-08-19 22:11:00,634 [1] INFO  HW13.Task1.MotorcycleRepository - All instances received
+2019-08-19 22:11:35,395 [1] INFO  HW13.Task1.MotorcycleRepository - 4 instance received
+2019-08-19 22:12:16,348 [1] INFO  HW13.Task1.MotorcycleRepository - Instance created:Name-Minsk, Model-35s58, Year-1988, Odometer-15
+2019-08-19 22:12:16,349 [1] WARN  HW13.Task1.MotorcycleDataBase - Datebase is full, instance not added.
+2019-08-19 22:12:46,906 [1] INFO  HW13.Task1.MotorcycleRepository - 4 instance received
+2019-08-19 22:12:53,758 [1] INFO  HW13.Task1.MotorcycleConsoleWrite - Update instance: >>> Year-2001
+2019-08-19 22:13:04,345 [1] INFO  HW13.Task1.MotorcycleConsoleWrite - Update instance: Year-1980 <<<
+2019-08-19 22:13:04,346 [1] INFO  HW13.Task1.MotorcycleRepository - 4 instance updated
+2019-08-19 22:13:22,569 [1] INFO  HW13.Task1.MotorcycleRepository - 2 instance received
+2019-08-19 22:13:27,238 [1] INFO  HW13.Task1.MotorcycleRepository - 2 instance deleted
+2019-08-19 22:13:34,091 [1] INFO  HW13.Task1.MotorcycleRepository - All instances received
+2019-08-19 22:14:07,355 [1] INFO  HW13.Task1.MotorcycleRepository - Instance created:Name-Minsk, Model-gt98, Year-1855, Odometer-122222
+2019-08-19 22:14:07,355 [1] INFO  HW13.Task1.MotorcycleDataBase - 5 instance added
+2019-08-19 22:14:30,894 [1] INFO  HW13.Task1.MotorcycleRepository - All instances received
