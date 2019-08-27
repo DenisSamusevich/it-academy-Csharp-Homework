@@ -102,7 +102,6 @@ namespace HW13.Task1
         }
         internal static void WriteUpdateMotorcycle(Motorcycle motorcycle, out Motorcycle motorcycleOut)
         {
-
             WriteTopTable();
             WriteOneMotorcycle(motorcycle);
             Console.WriteLine();
@@ -212,7 +211,5 @@ namespace HW13.Task1
             Console.SetCursorPosition(CurcorOdometer, Console.CursorTop);
             Console.WriteLine(odometer);
         }
-        
-
     }
 }

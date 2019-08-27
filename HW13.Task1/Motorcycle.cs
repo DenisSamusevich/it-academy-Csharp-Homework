@@ -79,8 +79,6 @@ namespace HW13.Task1
                     {
                         break;
                     }
-
-
             }
         }
 
