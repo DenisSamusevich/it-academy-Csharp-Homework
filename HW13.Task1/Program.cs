@@ -18,6 +18,7 @@ namespace HW13.Task1
             GlobalContext.Properties["LogFileName"] = baseDirectory;
             XmlConfigurator.Configure();
             log.Info("Entering application.");
+            MotorcycleRepository motorcycleRepository = new MotorcycleRepository();
             MotorcycleConsoleWrite.Greуting();
             start:
             MotorcycleConsoleWrite.WriteInputNumberMainMenu();
@@ -25,31 +26,31 @@ namespace HW13.Task1
             {
                 case 1:
                     {
-                        MotorcycleConsoleWrite.WriteAllMotorcycles(MotorcycleRepository.GetMotorcycles());
+                        MotorcycleConsoleWrite.WriteAllMotorcycles(motorcycleRepository.GetMotorcycles());
                         goto start;
                     }
                 case 2:
                     {
-                        MotorcycleConsoleWrite.WriteMotorcycle(MotorcycleRepository.GetMotorcycleByID(MotorcycleConsoleInput.InputConsoleNumberId(MotorcycleDataBase.MinNumberCollection, MotorcycleDataBase.СurrentNumberCollection)));
+                        MotorcycleConsoleWrite.WriteMotorcycle(motorcycleRepository.GetMotorcycleByID(MotorcycleConsoleInput.InputConsoleNumberId(MotorcycleDataBase.MinNumberCollection, MotorcycleDataBase.СurrentNumberCollection)));
                         goto start;
                     }
                 case 3:
                     {
                         MotorcycleConsoleWrite.WriteCreateMotorcycle(out Motorcycle motorcycleCreate);
-                        MotorcycleRepository.CreateMotorcycle(motorcycleCreate);
+                        motorcycleRepository.CreateMotorcycle(motorcycleCreate);
                         goto start;
                     }
                 case 4:
                     {
-                        MotorcycleConsoleWrite.WriteUpdateMotorcycle(MotorcycleRepository.GetMotorcycleByID(MotorcycleConsoleInput.InputConsoleNumberIdUpdate(MotorcycleDataBase.MinNumberCollection, MotorcycleDataBase.СurrentNumberCollection)), out Motorcycle motorcycleUpdate);
-                        MotorcycleRepository.UpdateMotorcycle(motorcycleUpdate);
+                        MotorcycleConsoleWrite.WriteUpdateMotorcycle(motorcycleRepository.GetMotorcycleByID(MotorcycleConsoleInput.InputConsoleNumberIdUpdate(MotorcycleDataBase.MinNumberCollection, MotorcycleDataBase.СurrentNumberCollection)), out Motorcycle motorcycleUpdate);
+                        motorcycleRepository.UpdateMotorcycle(motorcycleUpdate);
                         goto start;
                     }
                 case 5:
                     {
-                        if (MotorcycleConsoleWrite.WriteDeleteMotorcycle(MotorcycleRepository.GetMotorcycleByID(MotorcycleConsoleInput.InputConsoleNumberIdDelete(MotorcycleDataBase.MinNumberCollection, MotorcycleDataBase.СurrentNumberCollection)),out int inputId))
+                        if (MotorcycleConsoleWrite.WriteDeleteMotorcycle(motorcycleRepository.GetMotorcycleByID(MotorcycleConsoleInput.InputConsoleNumberIdDelete(MotorcycleDataBase.MinNumberCollection, MotorcycleDataBase.СurrentNumberCollection)),out int inputId))
                         {
-                            MotorcycleRepository.DeleteMotorcycle(inputId);
+                            motorcycleRepository.DeleteMotorcycle(inputId);
                             goto start;
                         }
                         else
